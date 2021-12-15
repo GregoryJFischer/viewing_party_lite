@@ -29,7 +29,7 @@ RSpec.describe 'Movie Service', :vcr do
     expect(films).to be_an(Array)
     expect(films.count).to eq(12)
     expect(first_film[:title]).to be_a(String)
-    expect(first_film[:vote_average]).to be_a(Integer)
+    expect(first_film[:vote_average]).to be_a(Float)
     expect(first_film[:poster_path]).to be_a(String)
     expect(first_film[:overview]).to be_a(String)
     expect(first_film[:genre_ids]).to be_an(Array)

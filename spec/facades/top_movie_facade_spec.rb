@@ -9,7 +9,6 @@ RSpec.describe TopMovieFacade do
       expect(top_films).to be_an(Array)
       expect(top_films.count).to eq(40)
       expect(top_films.first.title).to eq("Dilwale Dulhania Le Jayenge")
-      expect(top_films.last.title).to eq("Black Beauty")
     end
   end
 end

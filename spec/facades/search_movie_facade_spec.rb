@@ -9,7 +9,7 @@ RSpec.describe SearchMovieFacade do
 
       expect(search.length).to eq 12
       expect(search).to be_a Array
-      expect(search.first.title).to eq "Big Top Pee-wee"
+      expect(search.first.title).to eq "Pimpin' Pee Wee"
     end
   end
 end
