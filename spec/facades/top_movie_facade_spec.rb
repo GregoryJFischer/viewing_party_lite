@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe TopMovieFacade do
   describe 'movies' do
-    it 'can return 40 top rated films', :vcr do
+    xit 'can return 40 top rated films', :vcr do
       facade = TopMovieFacade.new
       top_films = facade.movies
 

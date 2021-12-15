@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'New User Page' do
-  it 'creates a new user' do
+  xit 'creates a new user' do
     visit new_user_path
 
     fill_in :name, with: 'Test Name'

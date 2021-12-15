@@ -2,6 +2,58 @@
 http_interactions:
 - request:
     method: get
+    uri: https://api.themoviedb.org/3/movie/75?api_key
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 15 Dec 2021 19:19:35 GMT
+      Server:
+      - openresty
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, HEAD, POST, PUT, DELETE, OPTIONS
+      Access-Control-Expose-Headers:
+      - ETag, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After,
+        Content-Length, Content-Range
+      Cache-Control:
+      - public, max-age=300
+      X-Cache:
+      - Error from cloudfront
+      Via:
+      - 1.1 c889e9448c63bb4bf9dd41fcb2250e09.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - IAD89-C3
+      X-Amz-Cf-Id:
+      - A1dx0bXeH6AsZPVFOCLY10PM_n3MXVVO4KdnordhCHKSngxJhs_9VA==
+    body:
+      encoding: UTF-8
+      string: '{"status_code":7,"status_message":"Invalid API key: You must be granted
+        a valid key.","success":false}
+
+'
+  recorded_at: Wed, 15 Dec 2021 19:19:35 GMT
+- request:
+    method: get
     uri: https://api.themoviedb.org/3/movie/75?api_key=<movie_api>
     body:
       encoding: US-ASCII
@@ -25,7 +77,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Fri, 03 Dec 2021 16:16:41 GMT
+      - Wed, 15 Dec 2021 19:23:46 GMT
       Server:
       - openresty
       Access-Control-Allow-Origin:
@@ -42,24 +94,24 @@ http_interactions:
       X-Memc-Key:
       - 9b8aad6c5f949d24c83ddb8c2f98747680950123
       X-Memc-Age:
-      - '4253'
+      - '3702'
       X-Memc-Expires:
-      - '13439'
+      - '13495'
       Etag:
-      - W/"d29d5853521af29408a4861061160159"
+      - W/"fbaf817a32744dbfd09c1817d4087a03"
       Vary:
       - Accept-Encoding
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 bfba2464a75a65b0c6568afe15f68b4c.cloudfront.net (CloudFront)
+      - 1.1 07b0e28d0c589c8a26610bbc5dcd660b.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
-      - IAD89-P1
+      - IAD50-C2
       X-Amz-Cf-Id:
-      - IGK2XD1_b_R4uj8c-BwjSv6a8ZkwjGYV2e13KT8M4phDBf7hBI3dlQ==
+      - wOrRQtx5lHsVOpPmyQMIymUuCd4b1kaUeKuYXLsZ1ryn8LExXGNYPA==
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eyJhZHVsdCI6ZmFsc2UsImJhY2tkcm9wX3BhdGgiOiIvRUxzVGlmSjJsdTR2c01ob0hlWjVFbm5jSHcuanBnIiwiYmVsb25nc190b19jb2xsZWN0aW9uIjpudWxsLCJidWRnZXQiOjcwMDAwMDAwLCJnZW5yZXMiOlt7ImlkIjozNSwibmFtZSI6IkNvbWVkeSJ9LHsiaWQiOjE0LCJuYW1lIjoiRmFudGFzeSJ9LHsiaWQiOjg3OCwibmFtZSI6IlNjaWVuY2UgRmljdGlvbiJ9XSwiaG9tZXBhZ2UiOiJodHRwczovL3d3dy53YXJuZXJicm9zLmNvbS9tb3ZpZXMvbWFycy1hdHRhY2tzLyIsImlkIjo3NSwiaW1kYl9pZCI6InR0MDExNjk5NiIsIm9yaWdpbmFsX2xhbmd1YWdlIjoiZW4iLCJvcmlnaW5hbF90aXRsZSI6Ik1hcnMgQXR0YWNrcyEiLCJvdmVydmlldyI6IidXZSBjb21lIGluIHBlYWNlJyBpcyBub3Qgd2hhdCB0aG9zZSBncmVlbiBtZW4gZnJvbSBNYXJzIG1lYW4gd2hlbiB0aGV5IGludmFkZSBvdXIgcGxhbmV0LCBhcm1lZCB3aXRoIGlycmVzaXN0aWJsZSB3ZWFwb25zIGFuZCBhIGNydWVsIHNlbnNlIG9mIGh1bW9yLiAgVGhpcyBzdGFyIHN0dWRkZWQgY2FzdCBtdXN0IHBsYXkgdmljdGltIHRvIHRoZSBhbGllbuKAmXMgZnVuIGFuZCBnYW1lcyBpbiB0aGlzIGNvbWVkeSBob21hZ2UgdG8gc2NpZW5jZSBmaWN0aW9uIGZpbG1zIG9mIHRoZSAnNTBzIGFuZCAnNjBzLiIsInBvcHVsYXJpdHkiOjE2Ljc3MiwicG9zdGVyX3BhdGgiOiIvaGxsNE81dlNBZm5aRGI2SmJuUDA2R1B0ejdiLmpwZyIsInByb2R1Y3Rpb25fY29tcGFuaWVzIjpbeyJpZCI6ODYwMSwibG9nb19wYXRoIjpudWxsLCJuYW1lIjoiVGltIEJ1cnRvbiBQcm9kdWN0aW9ucyIsIm9yaWdpbl9jb3VudHJ5IjoiIn0seyJpZCI6MTc0LCJsb2dvX3BhdGgiOiIvSXVBbGhJOWVWQzlaOFVRV09JRGRXUktTRUoucG5nIiwibmFtZSI6Ildhcm5lciBCcm9zLiBQaWN0dXJlcyIsIm9yaWdpbl9jb3VudHJ5IjoiVVMifV0sInByb2R1Y3Rpb25fY291bnRyaWVzIjpbeyJpc29fMzE2Nl8xIjoiVVMiLCJuYW1lIjoiVW5pdGVkIFN0YXRlcyBvZiBBbWVyaWNhIn1dLCJyZWxlYXNlX2RhdGUiOiIxOTk2LTEyLTEyIiwicmV2ZW51ZSI6MTAxMzcxMDE3LCJydW50aW1lIjoxMDYsInNwb2tlbl9sYW5ndWFnZXMiOlt7ImVuZ2xpc2hfbmFtZSI6IkVuZ2xpc2giLCJpc29fNjM5XzEiOiJlbiIsIm5hbWUiOiJFbmdsaXNoIn0seyJlbmdsaXNoX25hbWUiOiJGcmVuY2giLCJpc29fNjM5XzEiOiJmciIsIm5hbWUiOiJGcmFuw6dhaXMifV0sInN0YXR1cyI6IlJlbGVhc2VkIiwidGFnbGluZSI6Ik5pY2UgcGxhbmV0LiBXZSdsbCB0YWtlIGl0ISIsInRpdGxlIjoiTWFycyBBdHRhY2tzISIsInZpZGVvIjpmYWxzZSwidm90ZV9hdmVyYWdlIjo2LjQsInZvdGVfY291bnQiOjQyODB9
-  recorded_at: Fri, 03 Dec 2021 16:16:41 GMT
+        eyJhZHVsdCI6ZmFsc2UsImJhY2tkcm9wX3BhdGgiOiIvRUxzVGlmSjJsdTR2c01ob0hlWjVFbm5jSHcuanBnIiwiYmVsb25nc190b19jb2xsZWN0aW9uIjpudWxsLCJidWRnZXQiOjcwMDAwMDAwLCJnZW5yZXMiOlt7ImlkIjozNSwibmFtZSI6IkNvbWVkeSJ9LHsiaWQiOjE0LCJuYW1lIjoiRmFudGFzeSJ9LHsiaWQiOjg3OCwibmFtZSI6IlNjaWVuY2UgRmljdGlvbiJ9XSwiaG9tZXBhZ2UiOiJodHRwczovL3d3dy53YXJuZXJicm9zLmNvbS9tb3ZpZXMvbWFycy1hdHRhY2tzLyIsImlkIjo3NSwiaW1kYl9pZCI6InR0MDExNjk5NiIsIm9yaWdpbmFsX2xhbmd1YWdlIjoiZW4iLCJvcmlnaW5hbF90aXRsZSI6Ik1hcnMgQXR0YWNrcyEiLCJvdmVydmlldyI6IidXZSBjb21lIGluIHBlYWNlJyBpcyBub3Qgd2hhdCB0aG9zZSBncmVlbiBtZW4gZnJvbSBNYXJzIG1lYW4gd2hlbiB0aGV5IGludmFkZSBvdXIgcGxhbmV0LCBhcm1lZCB3aXRoIGlycmVzaXN0aWJsZSB3ZWFwb25zIGFuZCBhIGNydWVsIHNlbnNlIG9mIGh1bW9yLiAgVGhpcyBzdGFyIHN0dWRkZWQgY2FzdCBtdXN0IHBsYXkgdmljdGltIHRvIHRoZSBhbGllbuKAmXMgZnVuIGFuZCBnYW1lcyBpbiB0aGlzIGNvbWVkeSBob21hZ2UgdG8gc2NpZW5jZSBmaWN0aW9uIGZpbG1zIG9mIHRoZSAnNTBzIGFuZCAnNjBzLiIsInBvcHVsYXJpdHkiOjIyLjQ5NywicG9zdGVyX3BhdGgiOiIvaGxsNE81dlNBZm5aRGI2SmJuUDA2R1B0ejdiLmpwZyIsInByb2R1Y3Rpb25fY29tcGFuaWVzIjpbeyJpZCI6ODYwMSwibG9nb19wYXRoIjpudWxsLCJuYW1lIjoiVGltIEJ1cnRvbiBQcm9kdWN0aW9ucyIsIm9yaWdpbl9jb3VudHJ5IjoiIn0seyJpZCI6MTc0LCJsb2dvX3BhdGgiOiIvSXVBbGhJOWVWQzlaOFVRV09JRGRXUktTRUoucG5nIiwibmFtZSI6Ildhcm5lciBCcm9zLiBQaWN0dXJlcyIsIm9yaWdpbl9jb3VudHJ5IjoiVVMifV0sInByb2R1Y3Rpb25fY291bnRyaWVzIjpbeyJpc29fMzE2Nl8xIjoiVVMiLCJuYW1lIjoiVW5pdGVkIFN0YXRlcyBvZiBBbWVyaWNhIn1dLCJyZWxlYXNlX2RhdGUiOiIxOTk2LTEyLTEyIiwicmV2ZW51ZSI6MTAxMzcxMDE3LCJydW50aW1lIjoxMDYsInNwb2tlbl9sYW5ndWFnZXMiOlt7ImVuZ2xpc2hfbmFtZSI6IkVuZ2xpc2giLCJpc29fNjM5XzEiOiJlbiIsIm5hbWUiOiJFbmdsaXNoIn0seyJlbmdsaXNoX25hbWUiOiJGcmVuY2giLCJpc29fNjM5XzEiOiJmciIsIm5hbWUiOiJGcmFuw6dhaXMifV0sInN0YXR1cyI6IlJlbGVhc2VkIiwidGFnbGluZSI6Ik5pY2UgcGxhbmV0LiBXZSdsbCB0YWtlIGl0ISIsInRpdGxlIjoiTWFycyBBdHRhY2tzISIsInZpZGVvIjpmYWxzZSwidm90ZV9hdmVyYWdlIjo2LjQsInZvdGVfY291bnQiOjQyOTR9
+  recorded_at: Wed, 15 Dec 2021 19:23:46 GMT
 recorded_with: VCR 6.0.0
