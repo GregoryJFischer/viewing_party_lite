@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   get '/register', to: 'users#new', as: 'new_user'
   post '/users', to: 'users#create', as: 'create_user'
 
+  get '/login', to: 'users#login_form'
+  post '/login', to: 'users#login_user'
+
   get '/users/:id', to: 'users#show', as: 'user'
   get '/users/:id/discover', to: 'users#discover', as: 'discover'
 
