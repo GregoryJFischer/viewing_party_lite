@@ -8,14 +8,8 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.new(user_params)
-
-    if user.save
-      redirect_to user_path(user)
-    else
-      flash[:alert] = "Could not create user"
-      redirect_to new_user_path
-    end
+    user = User.create!(user_params)
+    redirect_to user_path(user)
   end
 
   def discover
@@ -24,6 +18,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.permit(:name, :email)
+    params.permit(:name, :email, :password, :password_confirmation)
   end
 end
