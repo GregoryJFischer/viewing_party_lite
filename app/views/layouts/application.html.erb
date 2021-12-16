@@ -16,7 +16,13 @@
       </div>
     <% end %>
 
-    <%= link_to "Home", root_path %>
+    <%= link_to "Home", root_path %> |
+    <% if session[:user_id] %>
+      <%= link_to "log out", '/login', method: :delete %>
+    <% else %>
+      <%= link_to "register", "/register" %> |
+      <%= link_to "log in", "/login" %>
+    <% end %>
 
     <%= yield %>
   </body>

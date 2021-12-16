@@ -4,7 +4,12 @@ class PartiesController < ApplicationController
   end
 
   def new
-    @facade = MovieDetailsFacade.new(params[:movie_id], params[:user_id])
+    if session[:user_id]
+      @facade = MovieDetailsFacade.new(params[:movie_id], session[:user_id])
+    else
+      flash[:alert] = registration_error
+      redirect_to root_path
+    end
   end
 
   def create
@@ -12,18 +17,18 @@ class PartiesController < ApplicationController
 
     if params[:length] >= params[:runtime]
       if party.save
-        UserParty.create(user: User.find(params[:user_id]), party: party)
+        UserParty.create(user: User.find(session[:user_id]), party: party)
 
         user_parties(party)
 
-        redirect_to "/users/#{params[:user_id]}"
+        redirect_to "/dashboard"
       else
         flash[:alert] = 'Could not create viewing party.'
-        redirect_to "/users/#{params[:user_id]}/movies/#{params[:movie_id]}/viewing-party/new"
+        redirect_to "/movies/#{params[:movie_id]}/viewing-party/new"
       end
     else
       flash[:alert] = 'Could not create party: party length must be greater than movie runtime'
-      redirect_to "/users/#{params[:user_id]}/movies/#{params[:movie_id]}/viewing-party/new"
+      redirect_to "/movies/#{params[:movie_id]}/viewing-party/new"
     end
   end
 

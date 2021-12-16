@@ -4,16 +4,23 @@ RSpec.describe 'Discover Movies' do
   describe 'when a user visits the discover path' do
     before :each do
       @user_1 = create(:user)
+
+      visit '/login'
+
+      fill_in :email, with: @user_1.email
+      fill_in :password, with: @user_1.password
+
+      click_button
     end
 
     it 'has a button to discover top rated movies', :vcr do
-      visit "/users/#{@user_1.id}/discover"
+      visit "/discover"
 
       click_button("Top Rated Movies")
     end
 
     it 'has a search feature for movies', :vcr do
-      visit "/users/#{@user_1.id}/discover"
+      visit "/discover"
 
       within("#search") do
         expect(page).to have_content("Search by Keyword")
@@ -23,7 +30,7 @@ RSpec.describe 'Discover Movies' do
     end
 
     it 'has a link to the home page' do
-      visit "/users/#{@user_1.id}/discover"
+      visit "/discover"
 
       expect(page).to have_link("Home")
     end

@@ -14,18 +14,25 @@ RSpec.describe 'Landing Page' do
       end
     end
 
-    it 'has a button to create a new user' do
-      within("#create_user") do
-        expect(page).to have_button("Create New User")
-      end
+    it 'has a link to create a new user' do
+      expect(page).to have_link("register")
     end
 
     it 'has a list of exisiting users' do
+      visit '/login'
+
+      fill_in :email, with: @user_1.email
+      fill_in :password, with: @user_1.password
+
+      click_button
+
+      visit root_path
+
       within("#user-#{@user_1.id}") do
-        expect(page).to have_link(@user_1.email)
+        expect(page).to have_content(@user_1.email)
       end
       within("#user-#{@user_2.id}") do
-        expect(page).to have_link(@user_2.email)
+        expect(page).to have_content(@user_2.email)
       end
     end
 
@@ -35,6 +42,25 @@ RSpec.describe 'Landing Page' do
       click_link("Home")
 
       expect(current_path).to eq(root_path)
+    end
+
+    it 'can log out' do
+      visit '/login'
+
+      fill_in :email, with: @user_1.email
+      fill_in :password, with: @user_1.password
+
+      click_button
+
+      visit root_path
+
+      expect(page).to have_link('log out')
+      expect(page).not_to have_link('log in')
+
+      click_link("log out")
+
+      expect(page).to have_link('log in')
+      expect(page).not_to have_link('log out')
     end
   end
 end
