@@ -1,14 +1,11 @@
 <h1 id="header">Viewing Party Light</h1>
-
-<section id="create_user">
-  <%= button_to "Create New User", "/register", method: :get %>
-  <%= button_to "Login", "/login", method: :get %>
-</section>
-<br>
-<br>
 <h2>Existing Users:<br></h2>
-<% @users.each do |user| %>
-  <section id="user-<%= user.id %>">
-    <p><%= link_to "#{user.email}", "/users/#{user.id}" %></p>
-  </section>
+<% if session[:user_id] %>
+  <ul>
+    <% @users.each do |user| %>
+      <section id="user-<%= user.id %>">
+        <li><%= user.email %></li>
+      </section>
+    <% end %>
+  </ul>
 <% end %>

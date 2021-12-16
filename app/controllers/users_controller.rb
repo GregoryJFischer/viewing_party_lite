@@ -1,7 +1,12 @@
 class UsersController < ApplicationController
 
   def show
-    @facade = UserFacade.new(User.find(params[:id]))
+    if session[:user_id]
+      @facade = UserFacade.new(User.find(session[:user_id]))
+    else
+      flash[:alert] = registration_error
+      redirect_to root_path
+    end
   end
 
   def new
@@ -9,29 +14,16 @@ class UsersController < ApplicationController
 
   def create
     user = User.create!(user_params)
+    session[:user_id] = user.id
     redirect_to user_path(user)
   end
 
   def discover
-    @user = User.find(params[:id])
-  end
-
-  def login_form
-  end
-
-  def login_user
-    user = User.find_by(email: params[:email])
-
-    if user
-      if user.authenticate(params[:password])
-        redirect_to user_path(user)
-      else
-        flash[:alert] = 'Incorrect password'
-        redirect_to '/login'
-      end
+    if session[:user_id]
+      @user = User.find(session[:user_id])
     else
-      flash[:alert] = 'No user matches your email'
-      redirect_to '/login'
+      flash[:alert] = registration_error
+      redirect_to root_path
     end
   end
 

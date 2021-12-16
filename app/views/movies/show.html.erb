@@ -1,8 +1,8 @@
 <h1><%= @facade.movie.title %></h1>
 
-<%= button_to "Discover Movies", "/users/#{@facade.user_id}/discover", method: :get%>
+<%= button_to "Discover Movies", "/discover", method: :get%>
 <br>
-<%= button_to "Create Viewing Party for #{@facade.movie.title}", "/users/#{@facade.user_id}/movies/#{@facade.movie_id}/viewing-party/new", method: :get %>
+<%= button_to "Create Viewing Party for #{@facade.movie.title}", "/movies/#{@facade.movie_id}/viewing-party/new", method: :get %>
 <br>
 <br>
 <div id="details">
