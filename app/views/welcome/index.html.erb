@@ -1,6 +1,6 @@
 <h1 id="header">Viewing Party Light</h1>
-<h2>Existing Users:<br></h2>
 <% if session[:user_id] %>
+<h2>Existing Users:<br></h2>
   <ul>
     <% @users.each do |user| %>
       <section id="user-<%= user.id %>">
